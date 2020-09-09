@@ -1,0 +1,109 @@
+
+反射:  reflect   
+
+一. 通过反射获取类 
+ 
+  1: class.forName(全类名) 
+   
+   Class<?> perClazz = Class.forName("包名.类名");
+   
+  2: 类名.class 方式    
+  	
+  Class<?> perClazz2 = Person.class ; 
+
+  3: 对象.getClass() ;  
+
+   person p = new  person();
+   
+   Class <?> perClazz3 = p.getClass();
+   
+	
+ 凡是反射必须要有 class.  
+	
+	//  通过反射获取的对象,可以获取所有的公共方法(1.本类以及父类,接口中的所有方法 2.符合访问修饰符规律)
+
+
+  java接口 单继承 多实现
+  
+  实现接口  然后去遍历
+	
+	
+	getSuperclass() 获取父类 
+	
+	反射 , 对象有的都能拿
+	
+	
+	// 获取所有的公共属性 可以  
+	
+	  class.fields
+	
+	// 获取当前类所有方法 (1.必须是当前类 , 2.忽略访问修饰符限制) : 就是可以访问到 private 属性的方法
+	
+	  class.getDeclaredFields 
+	  
+	  // 获取当前产生类的对象
+	  
+	  
+	 二. 通过反射获取对象的实例,并操作对象
+	 
+	 newInstance() 默认是object 
+	 
+	  操作属性 
+	  
+	  Class <?> perClazz = Nulll;
+	  
+	  perClazz = Class.forName("包名.类名");
+	  
+	  Person per = (Person)perClazz.newInstance();
+	  
+	  Field idField = perClazz.getDeclaredFields("id");
+	 
+	  // 访问的是 private 修饰的id , 但是private 是私有
+	  // 修改属性的访问权限,使用反射时,如果因为访问修饰符限制造成异常,可以通过Field.setAccessible(true)
+	  
+	  idField.setAccessible(true);
+	 
+	  idField.set(per,1); // per.setId("1");
+	  
+	  System.out.println();
+	 
+	  // 属性使用 idField  方法使用 method  
+	  
+	  method.setAccessible(true);  // 把访问修饰符调整一下
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	  

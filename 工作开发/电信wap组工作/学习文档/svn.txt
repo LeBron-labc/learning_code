@@ -1,0 +1,103 @@
+svn  
+
+工作原理: 客户端 - 服务端
+
+中央仓库: 放代码所有版本
+
+1.
+
+操作步骤 (4步) :
+
+ a.发布项目(share project ) : (第一次将项目发布到中央仓库)
+ b.下载项目(检出项目  check out ) : 组员 将中央仓库项目  第一次下载到本机 
+
+ c. 提交项目: 将本地修改内容 , 同步到服务器中 ( 本地 --> 服务器 )  -- 常用
+ d. 更新: 将服务器中最新代码同步到本地 ,  ( 服务器--> 本地 ) -- 常用 
+
+提交更新 -- 及时   
+
+2.
+
+安装完svn 后  需要配置环境变量 , path ( 现版本安装之后会自动配置环境变量 )
+
+3. 将本地目录设置为中央仓库 ( 保存项目各个历史版本 ) 
+
+4. 启动svn 服务  
+ a. 命令行启动
+  svnserve -d -r  仓库目录  ( cmd 窗口不能关闭  )
+ b.  注册系统方式 ( 推荐) 
+  用管理员方式打开  cmd 窗口
+  sc creat 服务名 binpath = "(安装包位置)  -- service -r  (svn 中央仓库位置 ) " start = auto  depend = Tcpip
+  
+启动: sc start  服务名
+关闭: sc stop 服务名  
+删除: sc delete 服务名
+
+5. 访问项目 
+
+ a. 匿名访问
+        仓库\..\conf\svnserve.conf 
+
+ 开始匿名访问: 19 行附近 anon-access   注释打开  , 注意顶格去写 不要留空格  
+	anon - acces  = read  (匿名可读)
+	anon - acces  = write (匿名可读可写)
+	anon - acces  = none (匿名无权)
+
+b. 授权访问
+svnservice.conf  
+20 行附近 ,  auth - access  打开
+	auth - access  = write
+
+27 行附近 
+  	password - db = passwd 注释打开(表示 授权人的 用户名密码 存放在 passwd 文件中 )
+
+编写用户文件 : 
+
+   passwd 文件中编写  
+ passwd : 
+  [users]
+   用户名 = 密码
+
+编写授权文件 authz: 
+ 分组: [groups] 分组
+ dev=zs,ls  
+ 权限:
+ [/] (所有)
+@dev = rw  (可读可写)
+*= (其他人啥都不能干)
+
+
+
+ 编写授权文件 
+ 
+ 6.eclipse  中用svn
+ 
+ eclipse_svn_site
+ 
+ 
+ 解决冲突: 
+ 
+    冲突有三个文件 , mine 代表个人的 , r4 是代表之前的 , r5是现在的
+ 
+   
+   带又* 号代表
+   
+   选中红色的文件 : 
+
+发布项目: 
+
+   a.内网 和 外网做一个映射  : 映射工具( nat123 等工具 ) 
+ 	
+   b.域名 : 租一台服务器 (新网,外网,阿里云)
+	
+   c.svn 托管网站
+   
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+脚手架(搭建的一个开发环境) 
+
+1.版本, 最新 3.0(ts 编写)  用的最多是 2.0 
+
+node.js 环境(npm 包管理工具) 前端开发工具
+vue - cli  - webpack  - 自动化构建工具(前端)
+
+2. 安装 cnpm  (node.js 中的包管理器 , 不用安装 )  下载对应的jar命令 npm install vue-cli -g
+
+npm install jquery   下载命令
+
+npm 是node 自带的 , cnpm 是一个淘宝镜像 (不推荐用)	
+
+脚手架 开箱即用  , 傻瓜式安装
+
+   安装完 node.js 后 开始执行 npm install vue-cli -g 命令
+
+$ npm install vue-cli -g  // -g 表示为全局 
+
+3.创建一个 webpack项目  (学习dos命令)
+
+在项目目录下  输入命令 : vue init webpack my-project 
+
+project name 输入项目名称
+
+project description 作者
+
+剩下的提示都输入 Y 
+
+vue-router 安装路由
+
+vue-ESLint  代码规范
+
+启动命令 : 
+
+npm run dev 
+
+退出命令 :
+
+ctrl + c 
+
+项目通过浏览器自动访问
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

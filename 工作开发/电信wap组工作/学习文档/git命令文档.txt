@@ -1,0 +1,6 @@
+git init 创建工作目录
+git log  查看提交版本历史
+git log --pretty=oneline  查看简单点的信息
+git reset --hard HEAD^ 回退版本
+git reflog  查看回退版本的 id 
+git reset --hard 版本id  回退到这个版本id    

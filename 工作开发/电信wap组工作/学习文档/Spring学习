@@ -1,0 +1,106 @@
+Spring 学习 
+
+ioc （反转控制）di （依赖注入） , aop （面向切面） 最核心的功能
+
+创建对象 以及 对象属性赋值都给spring 做就行了。
+
+2.配置bean 
+
+id  类名第一个名字小写 ， 标识容器中的bean id ， 唯一
+calss  全类名，反射方式（文件路径）通过反射的方式在ioc容器中创建bean，
+所以要求bean中必须有无参数的构造器
+
+3.例子
+
+applicationcontext 
+
+  refresh （刷新） ， close （关闭）
+
+// getbean （利用id定位到ioc容器中的bean）
+
+ioc  
+ 
+分离接口与实现 
+
+次采用工厂设计模式 
+
+采用反转控制
+
+4.property  -- 属性注入  最常用 
+
+constructor-arg -- 通过构造方法注入 （
+通过参数位置 ， 还有参数类型）
+
+如果有特殊值 用 <![CDATA[]]> 来包裹
+
+如果属性注入时 有属性是引用类型对象 ，那么 属性用ref引用
+
+4.1.<property name ="" ref ="" > 使用property 的 ref 属性建立bean之间的引用关系
+
+4.2.内部bean ， 不能被外部引用 ，只能在内部使用
+
+<null/>  测试null值专有标记 
+
+为级联属性赋值 
+
+<constructor-arg ref>
+<property name =car.maxSpeed value="">
+
+级联属性 ，集合属性
+
+
+Bean的生命周期可以表达为：Bean的定义——Bean的初始化——Bean的使用——Bean的销毁
+
+
+7.  Bean 作用域
+
+ scope 来配置bean的作用域 
+ 
+ singleton 默认值 ， 在创建时自动设置为这个属性。
+ 
+ , prototype
+
+
+8. 使用外部配置文件  -- 在进行 连接数据库的时候 用proper文件进行连接配置 
+
+   beanfactory 后置处理器  ${var} 
+
+    先加入命名空间 
+	context：property-placeholder 
+
+9.spEL    spring 表达语言 ，为bean 的属性进行动态赋值提供了便利
+
+赋值
+
+ value = "#()"
+
+
+运算符
+
+调用静态方法或静态属性
+
+11 . 工厂模式   
+
+ 静态工厂方法   不创建方法 , 也能创造示例
+  
+静态工厂方: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
